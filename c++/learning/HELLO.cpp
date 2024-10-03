@@ -1,24 +1,21 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
-#define char good = "a";
-#define floot pi = 3,14; // definindo que esssa variaveis são globais e imutaveis
+const double PI = 3.141592653589793;
 
-int sum(int a, int b) {
-    int result = a + b;
-    return result;
+float calculateAreaOfCircle(float raio) {
+    float raio2 = pow(raio, 2);
+    float area = PI * raio2; 
+    return area;
 }
 
 int main() {
-    int a, b;
-    cout << "type one number:" << endl;
-    cin >> a;
-    cout << "type another" << endl;
-    cin >> b;
+    float raio;
+    cout << "Digte o valor do raio" << endl;
+    cin >> raio;
 
-    int resul = sum(a, b);
-
-    cout << "your result is: " << resul;
+    cout << "A area dpo ciculo e: " << calculateAreaOfCircle(raio);
     return 0;
 }
