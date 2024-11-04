@@ -2,54 +2,66 @@
 
 using namespace std;
 
-int main()
-{
-    // ponteiros
-    /*int valor2 = 2;
-    int valor;
-    int* ponteiro;
-
-    valor=50;
-    ponteiro =& valor;
-
-    cout << ponteiro << endl;
-    cout << *ponteiro * valor2;*/
-
-    // vetores
-    /*char vet[5] = {'a','b','c','d','e'};
-    char anotherVet[] = {'x','y'};
-
-    cout << vet[0];
-    cout << anotherVet[8];*/
-    //alocação estatica
-    /*int x = 15;
-    char newArray[16];
-    char alfabeto[26] = {
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-    for (int i = 0; i < x; i++)
-    {
-        newArray[i] = alfabeto[i];
-        cout << newArray[i] << endl;
+string brownCalculateToGreen(string momColor) {
+    if(momColor == "Marrom") {
+        return "8.33%";
+    } else if(momColor == "Verde") {
+        return "27.78%";
+    } else if(momColor == "Azul") {
+        return "16.67%";
+    } else {
+        return "ERRO";
     }
-
-    int n = sizeof(newArray);
-    cout << n << endl;*/
-
-    //alocação dinamica
-    int tamanho;
-    cout << "Digite o tamanho do seu vetor" << endl;
-    cin >> tamanho;
-    int *vetor = new int[tamanho];
-
-    for(int i = 0; i < tamanho; i++){
-        cout << "Digite o " << i + 1 << " valor " << endl;
-        cin >> vetor[i];
+}
+string brownCalculateToBlue(string momColor) {
+    if(momColor == "Marrom") {
+        return "2.78%";
+    } else if(momColor == "Verde") {
+        return "5.56%";
+    } else if(momColor == "Azul") {
+        return "16.67%";
+    } else {
+        return "ERRO";
     }
-
-    for(int i = 0; i < tamanho ; i++) {
-        cout << vetor[i] << " ";
+}
+string blueBlueToBlue(string momColor) {
+    if(momColor == "Azul") {
+        return "99%";
+    } else if(momColor == "Verde") {
+        return "33.08%";
+    } else {
+        return "ERRO";
     }
+}
+string blueBlueToGreen(string momColor) {
+    if(momColor == "Azul") {
+        return "0.5%";
+    } else if(momColor == "Verde") {
+        return "66.42%";
+    } else {
+        return "ERRO";
+    }
+}
 
-    return 0;
+int main() {
+    string dadColor, momColor, sonColor;
+    cin >> dadColor >> momColor >> sonColor;
+
+    if(dadColor == "Marrom" and sonColor == "Verde") {
+        cout << brownCalculateToGreen(momColor);
+    } else if(dadColor == "Marrom" and sonColor == "Azul") {
+        cout << brownCalculateToBlue(momColor);
+    } else if(dadColor == "Azul" and sonColor == "Azul") {
+        cout << blueBlueToBlue(momColor);
+    } else if(dadColor == "Azul" and sonColor == "Verde") {
+        cout << blueBlueToGreen(momColor);
+    } else if(dadColor == "Verde" and momColor == "Verde") {
+        if(sonColor == "Verde") {
+            cout << "88.64%";
+        } else if(sonColor == "Azul") {
+            cout << "10.86%";
+        }
+    } else {
+        cout << "ERRO";
+    }
 }
