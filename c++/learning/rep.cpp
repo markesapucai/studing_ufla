@@ -1,28 +1,42 @@
 #include <iostream>
-#include <string>
-#include <vector>
 
 using namespace std;
 
+const int LINHAS = 3;
+const int COLUNAS = 5;
+
+void somaTrizes(int m1[LINHAS][COLUNAS], int m2[LINHAS][COLUNAS],
+                int resul[LINHAS][COLUNAS]) {
+  for (int i = 0; i < LINHAS; i++) {
+    for (int j = 0; j < COLUNAS; j++) {
+      resul[i][j] = m1[i][j] + m2[i][j];
+    }
+  }
+}
+
 int main() {
-    int tamVet;
-    cin >> tamVet;
-    vector<int> vetor(tamVet); 
-    vector<int> newVet;
-    
-    for(int i = 0; i < tamVet; i++) {
-        cin >> vetor[i];
-    }
+  int A[LINHAS][COLUNAS];
+  int B[LINHAS][COLUNAS];
+  int C[LINHAS][COLUNAS];
 
-    for(int i = 0; i < tamVet; i++) {
-        if(newVet.empty() || vetor[i] < newVet[0]) {
-            newVet.insert(newVet.begin(), vetor[i]); 
-        }
+  for (int i = 0; i < LINHAS; i++) {
+    for (int j = 0; j < COLUNAS; j++) {
+      cin >> A[i][j];
     }
-    for(int i = 0; i < tamVet; i++) {
-        cout << newVet[i] << endl;
+  }
+  for (int i = 0; i < LINHAS; i++) {
+    for (int j = 0; j < COLUNAS; j++) {
+      cin >> B[i][j];
     }
+  }
 
+  somaTrizes(A, B, C);
 
-    return 0;
+  for (int i = 0; i < LINHAS; i++) {
+    for (int j = 0; j < COLUNAS; j++) {
+      cout << C[i][j] << " ";
+    }
+    cout << endl;
+  }
+  return 0;
 }
